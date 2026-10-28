@@ -1,0 +1,205 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — warm cream paper, charcoal ink, dusty wine/rose accent.
+ * Fonts: Pacifico (script name/logo), Instrument Serif (italic accents),
+ * Host Grotesk (headings + body), Geist Mono (small labels).
+ */
+
+@theme inline {
+  --font-sans: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-script: "Pacifico", cursive;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+  --color-wine: var(--wine);
+  --color-live: var(--live);
+  --color-faint: var(--faint);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.973 0.006 60);
+  --foreground: oklch(0.3 0.008 60);
+  --card: oklch(0.988 0.004 60);
+  --card-foreground: oklch(0.3 0.008 60);
+  --popover: oklch(0.988 0.004 60);
+  --popover-foreground: oklch(0.3 0.008 60);
+  --primary: oklch(0.33 0.006 60);
+  --primary-foreground: oklch(0.975 0.006 60);
+  --secondary: oklch(0.945 0.012 12);
+  --secondary-foreground: oklch(0.38 0.1 10);
+  --muted: oklch(0.95 0.007 60);
+  --muted-foreground: oklch(0.52 0.012 50);
+  --faint: oklch(0.66 0.012 50);
+  --accent: oklch(0.945 0.015 12);
+  --accent-foreground: oklch(0.38 0.12 12);
+  --rose: oklch(0.45 0.14 12);
+  --rose-soft: oklch(0.94 0.02 12);
+  --wine: oklch(0.36 0.12 12);
+  --live: oklch(0.72 0.19 150);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.915 0.008 50);
+  --input: oklch(0.915 0.008 50);
+  --ring: oklch(0.45 0.14 12);
+
+  --shadow-float: 0 20px 50px -20px oklch(0.3 0.02 40 / 0.22), 0 2px 6px -2px oklch(0.3 0.02 40 / 0.06);
+  --shadow-card: 0 1px 2px oklch(0.3 0.02 40 / 0.04);
+  --shadow-card-hover: 0 24px 50px -28px oklch(0.3 0.02 40 / 0.3);
+  --gradient-glow: radial-gradient(closest-side, oklch(0.99 0.004 60), transparent);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--rose-soft);
+    color: var(--wine);
+  }
+}
+
+@utility shadow-float {
+  box-shadow: var(--shadow-float);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-card-hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+@utility bg-glow {
+  background: var(--gradient-glow);
+}
+
+/* Small mono label, e.g. "~ PROOF OF WORK" */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* Big tight uppercase display heading */
+@utility display {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--live) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 5px color-mix(in oklab, var(--live) 0%, transparent);
+  }
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+/* Fade the character sprite's edges into the page */
+@utility mask-fade {
+  mask-image:
+    linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+    linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
